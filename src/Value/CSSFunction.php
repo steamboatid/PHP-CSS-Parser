@@ -6,10 +6,7 @@ use Sabberworm\CSS\OutputFormat;
 
 class CSSFunction extends ValueList
 {
-    /**
-     * @var string
-     */
-    protected $sName;
+    protected string $sName;
 
     /**
      * @param string $sName
@@ -28,20 +25,12 @@ class CSSFunction extends ValueList
         parent::__construct($aArguments, $sSeparator, $iLineNo);
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->sName;
     }
 
-    /**
-     * @param string $sName
-     *
-     * @return void
-     */
-    public function setName($sName)
+    public function setName(string $sName): void
     {
         $this->sName = $sName;
     }
@@ -49,7 +38,7 @@ class CSSFunction extends ValueList
     /**
      * @return array<int, RuleValueList|CSSFunction|CSSString|LineName|Size|URL|string>
      */
-    public function getArguments()
+    public function getArguments(): array
     {
         return $this->aComponents;
     }
@@ -62,10 +51,7 @@ class CSSFunction extends ValueList
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         $aArguments = parent::render($oOutputFormat);
         return "{$this->sName}({$aArguments})";

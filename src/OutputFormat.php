@@ -2,6 +2,8 @@
 
 namespace Sabberworm\CSS;
 
+use Exception;
+
 /**
  * Class OutputFormat
  *
@@ -150,31 +152,23 @@ class OutputFormat
      */
     public $bRenderComments = false;
 
-    /**
-     * @var OutputFormatter|null
-     */
-    private $oFormatter = null;
+    private ?OutputFormatter $oFormatter = null;
 
     /**
      * @var OutputFormat|null
      */
-    private $oNextLevelFormat = null;
+    private ?self $oNextLevelFormat = null;
 
-    /**
-     * @var int
-     */
-    private $iIndentationLevel = 0;
+    private int $iIndentationLevel = 0;
 
     public function __construct()
     {
     }
 
     /**
-     * @param string $sName
-     *
      * @return string|null
      */
-    public function get($sName)
+    public function get(string $sName)
     {
         $aVarPrefixes = ['a', 's', 'm', 'b', 'f', 'o', 'c', 'i'];
         foreach ($aVarPrefixes as $sPrefix) {
@@ -228,7 +222,7 @@ class OutputFormat
      *
      * @return mixed
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function __call($sMethodName, array $aArguments)
     {
@@ -239,34 +233,21 @@ class OutputFormat
         } elseif (method_exists(OutputFormatter::class, $sMethodName)) {
             return call_user_func_array([$this->getFormatter(), $sMethodName], $aArguments);
         } else {
-            throw new \Exception('Unknown OutputFormat method called: ' . $sMethodName);
+            throw new Exception('Unknown OutputFormat method called: ' . $sMethodName);
         }
     }
 
-    /**
-     * @param int $iNumber
-     *
-     * @return self
-     */
-    public function indentWithTabs($iNumber = 1)
+    public function indentWithTabs(int $iNumber = 1): self
     {
         return $this->setIndentation(str_repeat("\t", $iNumber));
     }
 
-    /**
-     * @param int $iNumber
-     *
-     * @return self
-     */
-    public function indentWithSpaces($iNumber = 2)
+    public function indentWithSpaces(int $iNumber = 2): self
     {
         return $this->setIndentation(str_repeat(" ", $iNumber));
     }
 
-    /**
-     * @return OutputFormat
-     */
-    public function nextLevel()
+    public function nextLevel(): \Sabberworm\CSS\OutputFormat
     {
         if ($this->oNextLevelFormat === null) {
             $this->oNextLevelFormat = clone $this;
@@ -276,18 +257,12 @@ class OutputFormat
         return $this->oNextLevelFormat;
     }
 
-    /**
-     * @return void
-     */
-    public function beLenient()
+    public function beLenient(): void
     {
         $this->bIgnoreExceptions = true;
     }
 
-    /**
-     * @return OutputFormatter
-     */
-    public function getFormatter()
+    public function getFormatter(): OutputFormatter
     {
         if ($this->oFormatter === null) {
             $this->oFormatter = new OutputFormatter($this);
@@ -295,30 +270,23 @@ class OutputFormat
         return $this->oFormatter;
     }
 
-    /**
-     * @return int
-     */
-    public function level()
+    public function level(): int
     {
         return $this->iIndentationLevel;
     }
 
     /**
      * Creates an instance of this class without any particular formatting settings.
-     *
-     * @return self
      */
-    public static function create()
+    public static function create(): \Sabberworm\CSS\OutputFormat
     {
         return new OutputFormat();
     }
 
     /**
      * Creates an instance of this class with a preset for compact formatting.
-     *
-     * @return self
      */
-    public static function createCompact()
+    public static function createCompact(): \Sabberworm\CSS\OutputFormat
     {
         $format = self::create();
         $format->set('Space*Rules', "")
@@ -332,10 +300,8 @@ class OutputFormat
 
     /**
      * Creates an instance of this class with a preset for pretty formatting.
-     *
-     * @return self
      */
-    public static function createPretty()
+    public static function createPretty(): \Sabberworm\CSS\OutputFormat
     {
         $format = self::create();
         $format->set('Space*Rules', "\n")

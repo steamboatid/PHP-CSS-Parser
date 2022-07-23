@@ -92,14 +92,13 @@ abstract class Value implements Renderable
     }
 
     /**
-     * @param bool $bIgnoreCase
      *
      * @return CSSFunction|string
      *
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    public static function parseIdentifierOrFunction(ParserState $oParserState, $bIgnoreCase = false)
+    public static function parseIdentifierOrFunction(ParserState $oParserState, bool $bIgnoreCase = false)
     {
         $sResult = $oParserState->parseIdentifier($bIgnoreCase);
 
@@ -161,7 +160,7 @@ abstract class Value implements Renderable
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    private static function parseMicrosoftFilter(ParserState $oParserState)
+    private static function parseMicrosoftFilter(ParserState $oParserState): CSSFunction
     {
         $sFunction = $oParserState->consumeUntil('(', false, true);
         $aArguments = Value::parseValue($oParserState, [',', '=']);

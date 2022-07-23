@@ -62,11 +62,10 @@ abstract class CSSBlockList extends CSSList
      * @param CSSList|Rule|RuleSet|Value $oElement
      * @param array<int, Value> $aResult
      * @param string|null $sSearchString
-     * @param bool $bSearchInFunctionArguments
      *
      * @return void
      */
-    protected function allValues($oElement, array &$aResult, $sSearchString = null, $bSearchInFunctionArguments = false)
+    protected function allValues($oElement, array &$aResult, $sSearchString = null, bool $bSearchInFunctionArguments = false)
     {
         if ($oElement instanceof CSSBlockList) {
             foreach ($oElement->getContents() as $oContent) {

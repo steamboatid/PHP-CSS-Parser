@@ -7,10 +7,7 @@ use Sabberworm\CSS\Parsing\OutputException;
 
 class OutputFormatter
 {
-    /**
-     * @var OutputFormat
-     */
-    private $oFormat;
+    private OutputFormat $oFormat;
 
     public function __construct(OutputFormat $oFormat)
     {
@@ -18,12 +15,10 @@ class OutputFormatter
     }
 
     /**
-     * @param string $sName
      * @param string|null $sType
      *
-     * @return string
      */
-    public function space($sName, $sType = null)
+    public function space(string $sName, $sType = null): string
     {
         $sSpaceString = $this->oFormat->get("Space$sName");
         // If $sSpaceString is an array, we have multiple values configured
@@ -38,102 +33,62 @@ class OutputFormatter
         return $this->prepareSpace($sSpaceString);
     }
 
-    /**
-     * @return string
-     */
-    public function spaceAfterRuleName()
+    public function spaceAfterRuleName(): string
     {
         return $this->space('AfterRuleName');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceBeforeRules()
+    public function spaceBeforeRules(): string
     {
         return $this->space('BeforeRules');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceAfterRules()
+    public function spaceAfterRules(): string
     {
         return $this->space('AfterRules');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceBetweenRules()
+    public function spaceBetweenRules(): string
     {
         return $this->space('BetweenRules');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceBeforeBlocks()
+    public function spaceBeforeBlocks(): string
     {
         return $this->space('BeforeBlocks');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceAfterBlocks()
+    public function spaceAfterBlocks(): string
     {
         return $this->space('AfterBlocks');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceBetweenBlocks()
+    public function spaceBetweenBlocks(): string
     {
         return $this->space('BetweenBlocks');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceBeforeSelectorSeparator()
+    public function spaceBeforeSelectorSeparator(): string
     {
         return $this->space('BeforeSelectorSeparator');
     }
 
-    /**
-     * @return string
-     */
-    public function spaceAfterSelectorSeparator()
+    public function spaceAfterSelectorSeparator(): string
     {
         return $this->space('AfterSelectorSeparator');
     }
 
-    /**
-     * @param string $sSeparator
-     *
-     * @return string
-     */
-    public function spaceBeforeListArgumentSeparator($sSeparator)
+    public function spaceBeforeListArgumentSeparator(string $sSeparator): string
     {
         return $this->space('BeforeListArgumentSeparator', $sSeparator);
     }
 
-    /**
-     * @param string $sSeparator
-     *
-     * @return string
-     */
-    public function spaceAfterListArgumentSeparator($sSeparator)
+    public function spaceAfterListArgumentSeparator(string $sSeparator): string
     {
         return $this->space('AfterListArgumentSeparator', $sSeparator);
     }
 
-    /**
-     * @return string
-     */
-    public function spaceBeforeOpeningBrace()
+    public function spaceBeforeOpeningBrace(): string
     {
         return $this->space('BeforeOpeningBrace');
     }
@@ -141,7 +96,7 @@ class OutputFormatter
     /**
      * Runs the given code, either swallowing or passing exceptions, depending on the `bIgnoreExceptions` setting.
      *
-     * @param string $cCode the name of the function to call
+     * @param mixed $cCode the name of the function to call
      *
      * @return string|null
      */
@@ -163,13 +118,10 @@ class OutputFormatter
     /**
      * Clone of the `implode` function, but calls `render` with the current output format instead of `__toString()`.
      *
-     * @param string $sSeparator
      * @param array<array-key, Renderable|string> $aValues
-     * @param bool $bIncreaseLevel
      *
-     * @return string
      */
-    public function implode($sSeparator, array $aValues, $bIncreaseLevel = false)
+    public function implode(string $sSeparator, array $aValues, bool $bIncreaseLevel = false): string
     {
         $sResult = '';
         $oFormat = $this->oFormat;
@@ -192,12 +144,7 @@ class OutputFormatter
         return $sResult;
     }
 
-    /**
-     * @param string $sString
-     *
-     * @return string
-     */
-    public function removeLastSemicolon($sString)
+    public function removeLastSemicolon(string $sString): string
     {
         if ($this->oFormat->get('SemicolonAfterLastRule')) {
             return $sString;
@@ -215,9 +162,8 @@ class OutputFormatter
     /**
      *
      * @param array<Commentable> $aComments
-     * @return string
      */
-    public function comments(Commentable $oCommentable)
+    public function comments(Commentable $oCommentable): string
     {
         if (!$this->oFormat->bRenderComments) {
             return '';
@@ -234,20 +180,12 @@ class OutputFormatter
         return $sResult;
     }
 
-    /**
-     * @param string $sSpaceString
-     *
-     * @return string
-     */
-    private function prepareSpace($sSpaceString)
+    private function prepareSpace(string $sSpaceString): string
     {
         return str_replace("\n", "\n" . $this->indent(), $sSpaceString);
     }
 
-    /**
-     * @return string
-     */
-    private function indent()
+    private function indent(): string
     {
         return str_repeat($this->oFormat->sIndentation, $this->oFormat->level());
     }

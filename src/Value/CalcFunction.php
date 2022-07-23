@@ -19,12 +19,11 @@ class CalcFunction extends CSSFunction
     const T_OPERATOR = 2;
 
     /**
-     * @return CalcFunction
      *
      * @throws UnexpectedTokenException
      * @throws UnexpectedEOFException
      */
-    public static function parse(ParserState $oParserState)
+    public static function parse(ParserState $oParserState): \Sabberworm\CSS\Value\CalcFunction
     {
         $aOperators = ['+', '-', '*', '/'];
         $sFunction = trim($oParserState->consumeUntil('(', false, true));

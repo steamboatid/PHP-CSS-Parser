@@ -2,7 +2,9 @@
 
 namespace Sabberworm\CSS\Parsing;
 
-class SourceException extends \Exception
+use Exception;
+
+class SourceException extends Exception
 {
     /**
      * @var int

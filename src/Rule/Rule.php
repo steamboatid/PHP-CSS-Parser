@@ -18,35 +18,23 @@ use Sabberworm\CSS\Value\Value;
  */
 class Rule implements Renderable, Commentable
 {
-    /**
-     * @var string
-     */
-    private $sRule;
+    private string $sRule;
 
     /**
-     * @var RuleValueList|string|null
+     * @var mixed previously as RuleValueList|string|null
      */
-    private $mValue;
+    private $mValue = null;
+
+    private bool $bIsImportant;
 
     /**
-     * @var bool
-     */
-    private $bIsImportant;
-
-    /**
-     * @var array<int, int>
+     * @var mixed[]|int[]
      */
     private $aIeHack;
 
-    /**
-     * @var int
-     */
-    protected $iLineNo;
+    protected int $iLineNo;
 
-    /**
-     * @var int
-     */
-    protected $iColNo;
+    protected int $iColNo;
 
     /**
      * @var array<array-key, Comment>
@@ -70,12 +58,11 @@ class Rule implements Renderable, Commentable
     }
 
     /**
-     * @return Rule
      *
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    public static function parse(ParserState $oParserState)
+    public static function parse(ParserState $oParserState): \Sabberworm\CSS\Rule\Rule
     {
         $aComments = $oParserState->consumeWhiteSpace();
         $oRule = new Rule(
@@ -91,7 +78,7 @@ class Rule implements Renderable, Commentable
         if ($oParserState->getSettings()->bLenientParsing) {
             while ($oParserState->comes('\\')) {
                 $oParserState->consume('\\');
-                $oRule->addIeHack($oParserState->consume());
+                $oRule->addIeHack($oParserState->consume(1));
                 $oParserState->consumeWhiteSpace();
             }
         }
@@ -112,11 +99,9 @@ class Rule implements Renderable, Commentable
     }
 
     /**
-     * @param string $sRule
-     *
      * @return array<int, string>
      */
-    private static function listDelimiterForRule($sRule)
+    private static function listDelimiterForRule(string $sRule): array
     {
         if (preg_match('/^font($|-)/', $sRule)) {
             return [',', '/', ' '];
@@ -124,54 +109,34 @@ class Rule implements Renderable, Commentable
         return [',', ' ', '/'];
     }
 
-    /**
-     * @return int
-     */
-    public function getLineNo()
+    public function getLineNo(): int
     {
         return $this->iLineNo;
     }
 
-    /**
-     * @return int
-     */
-    public function getColNo()
+    public function getColNo(): int
     {
         return $this->iColNo;
     }
 
-    /**
-     * @param int $iLine
-     * @param int $iColumn
-     *
-     * @return void
-     */
-    public function setPosition($iLine, $iColumn)
+    public function setPosition(int $iLine, int $iColumn): void
     {
         $this->iColNo = $iColumn;
         $this->iLineNo = $iLine;
     }
 
-    /**
-     * @param string $sRule
-     *
-     * @return void
-     */
-    public function setRule($sRule)
+    public function setRule(string $sRule): void
     {
         $this->sRule = $sRule;
     }
 
-    /**
-     * @return string
-     */
-    public function getRule()
+    public function getRule(): string
     {
         return $this->sRule;
     }
 
     /**
-     * @return RuleValueList|string|null
+     * @return mixed previously as RuleValueList|string|null
      */
     public function getValue()
     {
@@ -180,10 +145,8 @@ class Rule implements Renderable, Commentable
 
     /**
      * @param RuleValueList|string|null $mValue
-     *
-     * @return void
      */
-    public function setValue($mValue)
+    public function setValue($mValue): void
     {
         $this->mValue = $mValue;
     }
@@ -191,13 +154,12 @@ class Rule implements Renderable, Commentable
     /**
      * @param array<array-key, array<array-key, RuleValueList>> $aSpaceSeparatedValues
      *
-     * @return RuleValueList
      *
      * @deprecated will be removed in version 9.0
      *             Old-Style 2-dimensional array given. Retained for (some) backwards-compatibility.
      *             Use `setValue()` instead and wrap the value inside a RuleValueList if necessary.
      */
-    public function setValues(array $aSpaceSeparatedValues)
+    public function setValues(array $aSpaceSeparatedValues): ?RuleValueList
     {
         $oSpaceSeparatedList = null;
         if (count($aSpaceSeparatedValues) > 1) {
@@ -231,13 +193,13 @@ class Rule implements Renderable, Commentable
     }
 
     /**
-     * @return array<int, array<int, RuleValueList>>
+     * @return array<int, array<int, RuleValueList|null>>
      *
      * @deprecated will be removed in version 9.0
      *             Old-Style 2-dimensional array returned. Retained for (some) backwards-compatibility.
      *             Use `getValue()` instead and check for the existence of a (nested set of) ValueList object(s).
      */
-    public function getValues()
+    public function getValues(): array
     {
         if (!$this->mValue instanceof RuleValueList) {
             return [[$this->mValue]];
@@ -265,12 +227,12 @@ class Rule implements Renderable, Commentable
      * Adds a value to the existing value. Value will be appended if a `RuleValueList` exists of the given type.
      * Otherwise, the existing value will be wrapped by one.
      *
-     * @param RuleValueList|array<int, RuleValueList> $mValue
-     * @param string $sType
-     *
+     * @param mixed $mValue previously as RuleValueList|array<int, RuleValueList>
+     * @param string $sType value type
      * @return void
+     *
      */
-    public function addValue($mValue, $sType = ' ')
+    public function addValue($mValue, string $sType = ' '): void
     {
         if (!is_array($mValue)) {
             $mValue = [$mValue];
@@ -287,22 +249,15 @@ class Rule implements Renderable, Commentable
         }
     }
 
-    /**
-     * @param int $iModifier
-     *
-     * @return void
-     */
-    public function addIeHack($iModifier)
+    public function addIeHack(int $iModifier): void
     {
         $this->aIeHack[] = $iModifier;
     }
 
     /**
      * @param array<int, int> $aModifiers
-     *
-     * @return void
      */
-    public function setIeHack(array $aModifiers)
+    public function setIeHack(array $aModifiers): void
     {
         $this->aIeHack = $aModifiers;
     }
@@ -310,25 +265,17 @@ class Rule implements Renderable, Commentable
     /**
      * @return array<int, int>
      */
-    public function getIeHack()
+    public function getIeHack(): array
     {
         return $this->aIeHack;
     }
 
-    /**
-     * @param bool $bIsImportant
-     *
-     * @return void
-     */
-    public function setIsImportant($bIsImportant)
+    public function setIsImportant(bool $bIsImportant): void
     {
         $this->bIsImportant = $bIsImportant;
     }
 
-    /**
-     * @return bool
-     */
-    public function getIsImportant()
+    public function getIsImportant(): bool
     {
         return $this->bIsImportant;
     }
@@ -341,10 +288,7 @@ class Rule implements Renderable, Commentable
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         $sResult = "{$oOutputFormat->comments($this)}{$this->sRule}:{$oOutputFormat->spaceAfterRuleName()}";
         if ($this->mValue instanceof Value) { // Can also be a ValueList
@@ -364,10 +308,8 @@ class Rule implements Renderable, Commentable
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function addComments(array $aComments)
+    public function addComments(array $aComments): void
     {
         $this->aComments = array_merge($this->aComments, $aComments);
     }
@@ -375,17 +317,15 @@ class Rule implements Renderable, Commentable
     /**
      * @return array<array-key, Comment>
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->aComments;
     }
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function setComments(array $aComments)
+    public function setComments(array $aComments): void
     {
         $this->aComments = $aComments;
     }

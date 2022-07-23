@@ -19,12 +19,11 @@ class LineName extends ValueList
     }
 
     /**
-     * @return LineName
      *
      * @throws UnexpectedTokenException
      * @throws UnexpectedEOFException
      */
-    public static function parse(ParserState $oParserState)
+    public static function parse(ParserState $oParserState): \Sabberworm\CSS\Value\LineName
     {
         $oParserState->consume('[');
         $oParserState->consumeWhiteSpace();
@@ -55,10 +54,7 @@ class LineName extends ValueList
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         return '[' . parent::render(OutputFormat::createCompact()) . ']';
     }

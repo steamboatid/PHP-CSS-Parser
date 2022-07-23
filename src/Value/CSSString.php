@@ -10,10 +10,7 @@ use Sabberworm\CSS\Parsing\UnexpectedTokenException;
 
 class CSSString extends PrimitiveValue
 {
-    /**
-     * @var string
-     */
-    private $sString;
+    private string $sString;
 
     /**
      * @param string $sString
@@ -26,13 +23,12 @@ class CSSString extends PrimitiveValue
     }
 
     /**
-     * @return CSSString
      *
      * @throws SourceException
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    public static function parse(ParserState $oParserState)
+    public static function parse(ParserState $oParserState): \Sabberworm\CSS\Value\CSSString
     {
         $sBegin = $oParserState->peek();
         $sQuote = null;
@@ -67,20 +63,12 @@ class CSSString extends PrimitiveValue
         return new CSSString($sResult, $oParserState->currentLine());
     }
 
-    /**
-     * @param string $sString
-     *
-     * @return void
-     */
-    public function setString($sString)
+    public function setString(string $sString): void
     {
         $this->sString = $sString;
     }
 
-    /**
-     * @return string
-     */
-    public function getString()
+    public function getString(): string
     {
         return $this->sString;
     }
@@ -93,10 +81,7 @@ class CSSString extends PrimitiveValue
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         $sString = addslashes($this->sString);
         $sString = str_replace("\n", '\A', $sString);

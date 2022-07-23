@@ -25,11 +25,9 @@ class Document extends CSSBlockList
     }
 
     /**
-     * @return Document
-     *
      * @throws SourceException
      */
-    public static function parse(ParserState $oParserState)
+    public static function parse(ParserState $oParserState): \Sabberworm\CSS\CSSList\Document
     {
         $oDocument = new Document($oParserState->currentLine());
         CSSList::parseList($oParserState, $oDocument);
@@ -41,7 +39,7 @@ class Document extends CSSBlockList
      *
      * @return array<int, DeclarationBlock>
      */
-    public function getAllDeclarationBlocks()
+    public function getAllDeclarationBlocks(): array
     {
         /** @var array<int, DeclarationBlock> $aResult */
         $aResult = [];
@@ -56,7 +54,7 @@ class Document extends CSSBlockList
      *
      * @deprecated will be removed in version 9.0; use `getAllDeclarationBlocks()` instead
      */
-    public function getAllSelectors()
+    public function getAllSelectors(): array
     {
         return $this->getAllDeclarationBlocks();
     }
@@ -66,7 +64,7 @@ class Document extends CSSBlockList
      *
      * @return array<int, RuleSet>
      */
-    public function getAllRuleSets()
+    public function getAllRuleSets(): array
     {
         /** @var array<int, RuleSet> $aResult */
         $aResult = [];
@@ -86,7 +84,7 @@ class Document extends CSSBlockList
      *
      * @see RuleSet->getRules()
      */
-    public function getAllValues($mElement = null, $bSearchInFunctionArguments = false)
+    public function getAllValues($mElement = null, bool $bSearchInFunctionArguments = false): array
     {
         $sSearchString = null;
         if ($mElement === null) {
@@ -115,7 +113,7 @@ class Document extends CSSBlockList
      * @example `getSelectorsBySpecificity('>= 100')`
      *
      */
-    public function getSelectorsBySpecificity($sSpecificitySearch = null)
+    public function getSelectorsBySpecificity($sSpecificitySearch = null): array
     {
         /** @var array<int, Selector> $aResult */
         $aResult = [];
@@ -125,10 +123,8 @@ class Document extends CSSBlockList
 
     /**
      * Expands all shorthand properties to their long value.
-     *
-     * @return void
      */
-    public function expandShorthands()
+    public function expandShorthands(): void
     {
         foreach ($this->getAllDeclarationBlocks() as $oDeclaration) {
             $oDeclaration->expandShorthands();
@@ -137,10 +133,8 @@ class Document extends CSSBlockList
 
     /**
      * Create shorthands properties whenever possible.
-     *
-     * @return void
      */
-    public function createShorthands()
+    public function createShorthands(): void
     {
         foreach ($this->getAllDeclarationBlocks() as $oDeclaration) {
             $oDeclaration->createShorthands();
@@ -151,10 +145,8 @@ class Document extends CSSBlockList
      * Overrides `render()` to make format argument optional.
      *
      * @param OutputFormat|null $oOutputFormat
-     *
-     * @return string
      */
-    public function render(OutputFormat $oOutputFormat = null)
+    public function render(OutputFormat $oOutputFormat = null): string
     {
         if ($oOutputFormat === null) {
             $oOutputFormat = new OutputFormat();
@@ -162,10 +154,7 @@ class Document extends CSSBlockList
         return $oOutputFormat->comments($this) . $this->renderListContents($oOutputFormat);
     }
 
-    /**
-     * @return bool
-     */
-    public function isRootList()
+    public function isRootList(): bool
     {
         return true;
     }

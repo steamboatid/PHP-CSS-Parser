@@ -16,15 +16,9 @@ use Sabberworm\CSS\Value\CSSString;
  */
 class Charset implements AtRule
 {
-    /**
-     * @var CSSString
-     */
-    private $oCharset;
+    private CSSString $oCharset;
 
-    /**
-     * @var int
-     */
-    protected $iLineNo;
+    protected int $iLineNo;
 
     /**
      * @var array<array-key, Comment>
@@ -42,29 +36,21 @@ class Charset implements AtRule
         $this->aComments = [];
     }
 
-    /**
-     * @return int
-     */
-    public function getLineNo()
+    public function getLineNo(): int
     {
         return $this->iLineNo;
     }
 
     /**
-     * @param string|CSSString $oCharset
-     *
-     * @return void
+     * @param mixed $oCharset previously as string|CSSString
      */
-    public function setCharset($sCharset)
+    public function setCharset($sCharset): void
     {
         $sCharset = $sCharset instanceof CSSString ? $sCharset : new CSSString($sCharset);
         $this->oCharset = $sCharset;
     }
 
-    /**
-     * @return string
-     */
-    public function getCharset()
+    public function getCharset(): string
     {
         return $this->oCharset->getString();
     }
@@ -77,24 +63,19 @@ class Charset implements AtRule
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         return "{$oOutputFormat->comments($this)}@charset {$this->oCharset->render($oOutputFormat)};";
     }
 
-    /**
-     * @return string
-     */
-    public function atRuleName()
+    public function atRuleName(): string
     {
         return 'charset';
     }
 
     /**
-     * @return string
+     * @return mixed of CSSString|array<int, URL|string>|string|null previously as string|null
+     *               in this class return as string
      */
     public function atRuleArgs()
     {
@@ -103,10 +84,8 @@ class Charset implements AtRule
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function addComments(array $aComments)
+    public function addComments(array $aComments): void
     {
         $this->aComments = array_merge($this->aComments, $aComments);
     }
@@ -114,17 +93,15 @@ class Charset implements AtRule
     /**
      * @return array<array-key, Comment>
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->aComments;
     }
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function setComments(array $aComments)
+    public function setComments(array $aComments): void
     {
         $this->aComments = $aComments;
     }

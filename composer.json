@@ -57,7 +57,9 @@
         "fix:php:fixer": "@php ./.phive/php-cs-fixer.phar --config=config/php-cs-fixer.php fix bin src tests",
         "fix:php:sniffer": "@php ./.phive/phpcbf.phar --standard=config/phpcs.xml bin src tests",
         "phpstan:baseline": "@php ./.phive/phpstan.phar --configuration=config/phpstan.neon --generate-baseline=config/phpstan-baseline.neon",
-        "test": "vendor/bin/phpunit tests"
+        "test": "vendor/bin/phpunit tests --stop-on-error --stop-on-fail",
+        "phpstan": "vendor/bin/phpstan --configuration=config/phpstan.neon analyse src",
+        "rector": "vendor/bin/rector --configuration=config/phpstan.neon src"
     },
     "scripts-descriptions": {
         "ci": "Runs all dynamic and static code checks (i.e. currently, only the static checks).",

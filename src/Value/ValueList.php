@@ -9,7 +9,7 @@ abstract class ValueList extends Value
     /**
      * @var array<int, RuleValueList|CSSFunction|CSSString|LineName|Size|URL|string>
      */
-    protected $aComponents;
+    protected array $aComponents;
 
     /**
      * @var string
@@ -45,7 +45,7 @@ abstract class ValueList extends Value
     /**
      * @return array<int, RuleValueList|CSSFunction|CSSString|LineName|Size|URL|string>
      */
-    public function getListComponents()
+    public function getListComponents(): array
     {
         return $this->aComponents;
     }
@@ -69,11 +69,9 @@ abstract class ValueList extends Value
     }
 
     /**
-     * @param string $sSeparator
-     *
      * @return void
      */
-    public function setListSeparator($sSeparator)
+    public function setListSeparator(string $sSeparator)
     {
         $this->sSeparator = $sSeparator;
     }

@@ -41,39 +41,33 @@ class Settings
     /**
      * @return self new instance
      */
-    public static function create()
+    public static function create(): \Sabberworm\CSS\Settings
     {
         return new Settings();
     }
 
     /**
-     * @param bool $bMultibyteSupport
-     *
      * @return self fluent interface
      */
-    public function withMultibyteSupport($bMultibyteSupport = true)
+    public function withMultibyteSupport(bool $bMultibyteSupport = true): self
     {
         $this->bMultibyteSupport = $bMultibyteSupport;
         return $this;
     }
 
     /**
-     * @param string $sDefaultCharset
-     *
      * @return self fluent interface
      */
-    public function withDefaultCharset($sDefaultCharset)
+    public function withDefaultCharset(string $sDefaultCharset): self
     {
         $this->sDefaultCharset = $sDefaultCharset;
         return $this;
     }
 
     /**
-     * @param bool $bLenientParsing
-     *
      * @return self fluent interface
      */
-    public function withLenientParsing($bLenientParsing = true)
+    public function withLenientParsing(bool $bLenientParsing = true): self
     {
         $this->bLenientParsing = $bLenientParsing;
         return $this;
@@ -82,7 +76,7 @@ class Settings
     /**
      * @return self fluent interface
      */
-    public function beStrict()
+    public function beStrict(): \Sabberworm\CSS\Settings
     {
         return $this->withLenientParsing(false);
     }

@@ -27,24 +27,18 @@ class Size extends PrimitiveValue
     const NON_SIZE_UNITS = ['deg', 'grad', 'rad', 's', 'ms', 'turn', 'Hz', 'kHz'];
 
     /**
-     * @var array<int, array<string, string>>|null
+     * @var mixed[][]|null
      */
-    private static $SIZE_UNITS = null;
+    private static ?array $SIZE_UNITS = null;
 
-    /**
-     * @var float
-     */
-    private $fSize;
+    private float $fSize;
 
     /**
      * @var string|null
      */
-    private $sUnit;
+    private ?string $sUnit = null;
 
-    /**
-     * @var bool
-     */
-    private $bIsColorComponent;
+    private bool $bIsColorComponent = false;
 
     /**
      * @param float|int|string $fSize
@@ -52,7 +46,7 @@ class Size extends PrimitiveValue
      * @param bool $bIsColorComponent
      * @param int $iLineNo
      */
-    public function __construct($fSize, $sUnit = null, $bIsColorComponent = false, $iLineNo = 0)
+    public function __construct($fSize, ?string $sUnit = null, bool $bIsColorComponent = false, int $iLineNo = 0)
     {
         parent::__construct($iLineNo);
         $this->fSize = (float)$fSize;
@@ -61,14 +55,12 @@ class Size extends PrimitiveValue
     }
 
     /**
-     * @param bool $bIsColorComponent
      *
-     * @return Size
      *
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    public static function parse(ParserState $oParserState, $bIsColorComponent = false)
+    public static function parse(ParserState $oParserState, bool $bIsColorComponent = false): \Sabberworm\CSS\Value\Size
     {
         $sSize = '';
         if ($oParserState->comes('-')) {
@@ -99,7 +91,7 @@ class Size extends PrimitiveValue
     /**
      * @return array<int, array<string, string>>
      */
-    private static function getSizeUnits()
+    private static function getSizeUnits(): array
     {
         if (!is_array(self::$SIZE_UNITS)) {
             self::$SIZE_UNITS = [];
@@ -117,20 +109,15 @@ class Size extends PrimitiveValue
         return self::$SIZE_UNITS;
     }
 
-    /**
-     * @param string $sUnit
-     *
-     * @return void
-     */
-    public function setUnit($sUnit)
+    public function setUnit(string $sUnit): void
     {
         $this->sUnit = $sUnit;
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getUnit()
+    public function getUnit(): string
     {
         return $this->sUnit;
     }
@@ -138,23 +125,17 @@ class Size extends PrimitiveValue
     /**
      * @param float|int|string $fSize
      */
-    public function setSize($fSize)
+    public function setSize($fSize): void
     {
         $this->fSize = (float)$fSize;
     }
 
-    /**
-     * @return float
-     */
-    public function getSize()
+    public function getSize(): float
     {
         return $this->fSize;
     }
 
-    /**
-     * @return bool
-     */
-    public function isColorComponent()
+    public function isColorComponent(): bool
     {
         return $this->bIsColorComponent;
     }
@@ -164,7 +145,7 @@ class Size extends PrimitiveValue
      *
      * @return false if the unit an angle, a duration, a frequency or the number is a component in a Color object.
      */
-    public function isSize()
+    public function isSize(): bool
     {
         if (in_array($this->sUnit, self::NON_SIZE_UNITS, true)) {
             return false;
@@ -172,10 +153,7 @@ class Size extends PrimitiveValue
         return !$this->isColorComponent();
     }
 
-    /**
-     * @return bool
-     */
-    public function isRelative()
+    public function isRelative(): bool
     {
         if (in_array($this->sUnit, self::RELATIVE_SIZE_UNITS, true)) {
             return true;
@@ -194,10 +172,7 @@ class Size extends PrimitiveValue
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         $l = localeconv();
         $sPoint = preg_quote($l['decimal_point'], '/');

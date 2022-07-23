@@ -18,7 +18,7 @@ use Sabberworm\CSS\Rule\Rule;
 abstract class RuleSet implements Renderable, Commentable
 {
     /**
-     * @var array<string, Rule>
+     * @var mixed[]|mixed[][]
      */
     private $aRules;
 
@@ -162,7 +162,7 @@ abstract class RuleSet implements Renderable, Commentable
                 $aResult = array_merge($aResult, $aRules);
             }
         }
-        usort($aResult, function (Rule $first, Rule $second) {
+        usort($aResult, function (Rule $first, Rule $second): int {
             if ($first->getLineNo() === $second->getLineNo()) {
                 return $first->getColNo() - $second->getColNo();
             }
@@ -201,7 +201,7 @@ abstract class RuleSet implements Renderable, Commentable
      *
      * @return array<string, Rule>
      */
-    public function getRulesAssoc($mRule = null)
+    public function getRulesAssoc($mRule = null): array
     {
         /** @var array<string, Rule> $aResult */
         $aResult = [];

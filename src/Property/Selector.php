@@ -60,22 +60,14 @@ class Selector
         )$
         /ux';
 
-    /**
-     * @var string
-     */
-    private $sSelector;
+    private string $sSelector;
+
+    private ?int $iSpecificity = null;
 
     /**
-     * @var int|null
-     */
-    private $iSpecificity;
-
-    /**
-     * @param string $sSelector
-     *
      * @return bool
      */
-    public static function isValid($sSelector)
+    public static function isValid(string $sSelector)
     {
         return preg_match(static::SELECTOR_VALIDATION_RX, $sSelector);
     }
@@ -92,20 +84,12 @@ class Selector
         }
     }
 
-    /**
-     * @return string
-     */
-    public function getSelector()
+    public function getSelector(): string
     {
         return $this->sSelector;
     }
 
-    /**
-     * @param string $sSelector
-     *
-     * @return void
-     */
-    public function setSelector($sSelector)
+    public function setSelector(string $sSelector): void
     {
         $this->sSelector = trim($sSelector);
         $this->iSpecificity = null;
@@ -119,10 +103,7 @@ class Selector
         return $this->getSelector();
     }
 
-    /**
-     * @return int
-     */
-    public function getSpecificity()
+    public function getSpecificity(): int
     {
         if ($this->iSpecificity === null) {
             $a = 0;

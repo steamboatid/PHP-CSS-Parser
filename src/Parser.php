@@ -11,10 +11,7 @@ use Sabberworm\CSS\Parsing\SourceException;
  */
 class Parser
 {
-    /**
-     * @var ParserState
-     */
-    private $oParserState;
+    private ParserState $oParserState;
 
     /**
      * @param string $sText
@@ -29,31 +26,21 @@ class Parser
         $this->oParserState = new ParserState($sText, $oParserSettings, $iLineNo);
     }
 
-    /**
-     * @param string $sCharset
-     *
-     * @return void
-     */
-    public function setCharset($sCharset)
+    public function setCharset(string $sCharset): void
     {
         $this->oParserState->setCharset($sCharset);
     }
 
-    /**
-     * @return void
-     */
-    public function getCharset()
+    public function getCharset(): void
     {
         // Note: The `return` statement is missing here. This is a bug that needs to be fixed.
         $this->oParserState->getCharset();
     }
 
     /**
-     * @return Document
-     *
      * @throws SourceException
      */
-    public function parse()
+    public function parse(): Document
     {
         return Document::parse($this->oParserState);
     }

@@ -14,10 +14,7 @@ class CalcRuleValueList extends RuleValueList
         parent::__construct(',', $iLineNo);
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         return $oOutputFormat->implode(' ', $this->aComponents);
     }

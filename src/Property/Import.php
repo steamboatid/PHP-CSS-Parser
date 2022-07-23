@@ -11,20 +11,14 @@ use Sabberworm\CSS\Value\URL;
  */
 class Import implements AtRule
 {
-    /**
-     * @var URL
-     */
-    private $oLocation;
+    private URL $oLocation;
 
     /**
      * @var string
      */
     private $sMediaQuery;
 
-    /**
-     * @var int
-     */
-    protected $iLineNo;
+    protected int $iLineNo;
 
     /**
      * @var array<array-key, Comment>
@@ -44,28 +38,17 @@ class Import implements AtRule
         $this->aComments = [];
     }
 
-    /**
-     * @return int
-     */
-    public function getLineNo()
+    public function getLineNo(): int
     {
         return $this->iLineNo;
     }
 
-    /**
-     * @param URL $oLocation
-     *
-     * @return void
-     */
-    public function setLocation($oLocation)
+    public function setLocation(URL $oLocation): void
     {
         $this->oLocation = $oLocation;
     }
 
-    /**
-     * @return URL
-     */
-    public function getLocation()
+    public function getLocation(): URL
     {
         return $this->oLocation;
     }
@@ -78,25 +61,20 @@ class Import implements AtRule
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         return $oOutputFormat->comments($this) . "@import " . $this->oLocation->render($oOutputFormat)
             . ($this->sMediaQuery === null ? '' : ' ' . $this->sMediaQuery) . ';';
     }
 
-    /**
-     * @return string
-     */
-    public function atRuleName()
+    public function atRuleName(): string
     {
         return 'import';
     }
 
     /**
-     * @return array<int, URL|string>
+     * @return mixed of CSSString|array<int, URL|string>|string|null previously as string|null
+         *               in this class return as array<int, URL|string>
      */
     public function atRuleArgs()
     {
@@ -109,10 +87,8 @@ class Import implements AtRule
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function addComments(array $aComments)
+    public function addComments(array $aComments): void
     {
         $this->aComments = array_merge($this->aComments, $aComments);
     }
@@ -120,17 +96,15 @@ class Import implements AtRule
     /**
      * @return array<array-key, Comment>
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->aComments;
     }
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function setComments(array $aComments)
+    public function setComments(array $aComments): void
     {
         $this->aComments = $aComments;
     }

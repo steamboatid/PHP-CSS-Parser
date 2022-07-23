@@ -7,15 +7,9 @@ use Sabberworm\CSS\Renderable;
 
 class Comment implements Renderable
 {
-    /**
-     * @var int
-     */
-    protected $iLineNo;
+    protected int $iLineNo;
 
-    /**
-     * @var string
-     */
-    protected $sComment;
+    protected string $sComment;
 
     /**
      * @param string $sComment
@@ -27,28 +21,17 @@ class Comment implements Renderable
         $this->iLineNo = $iLineNo;
     }
 
-    /**
-     * @return string
-     */
-    public function getComment()
+    public function getComment(): string
     {
         return $this->sComment;
     }
 
-    /**
-     * @return int
-     */
-    public function getLineNo()
+    public function getLineNo(): int
     {
         return $this->iLineNo;
     }
 
-    /**
-     * @param string $sComment
-     *
-     * @return void
-     */
-    public function setComment($sComment)
+    public function setComment(string $sComment): void
     {
         $this->sComment = $sComment;
     }
@@ -61,10 +44,7 @@ class Comment implements Renderable
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         return '/*' . $this->sComment . '*/';
     }

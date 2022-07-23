@@ -7,15 +7,9 @@ use Sabberworm\CSS\Property\AtRule;
 
 class KeyFrame extends CSSList implements AtRule
 {
-    /**
-     * @var string|null
-     */
-    private $vendorKeyFrame;
+    private ?string $vendorKeyFrame = null;
 
-    /**
-     * @var string|null
-     */
-    private $animationName;
+    private ?string $animationName = null;
 
     /**
      * @param int $iLineNo
@@ -27,10 +21,7 @@ class KeyFrame extends CSSList implements AtRule
         $this->animationName = null;
     }
 
-    /**
-     * @param string $vendorKeyFrame
-     */
-    public function setVendorKeyFrame($vendorKeyFrame)
+    public function setVendorKeyFrame(string $vendorKeyFrame): void
     {
         $this->vendorKeyFrame = $vendorKeyFrame;
     }
@@ -38,15 +29,12 @@ class KeyFrame extends CSSList implements AtRule
     /**
      * @return string|null
      */
-    public function getVendorKeyFrame()
+    public function getVendorKeyFrame(): ?string
     {
         return $this->vendorKeyFrame;
     }
 
-    /**
-     * @param string $animationName
-     */
-    public function setAnimationName($animationName)
+    public function setAnimationName(string $animationName): void
     {
         $this->animationName = $animationName;
     }
@@ -54,7 +42,7 @@ class KeyFrame extends CSSList implements AtRule
     /**
      * @return string|null
      */
-    public function getAnimationName()
+    public function getAnimationName(): ?string
     {
         return $this->animationName;
     }
@@ -67,10 +55,7 @@ class KeyFrame extends CSSList implements AtRule
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         $sResult = $oOutputFormat->comments($this);
         $sResult .= "@{$this->vendorKeyFrame} {$this->animationName}{$oOutputFormat->spaceBeforeOpeningBrace()}{";
@@ -79,10 +64,7 @@ class KeyFrame extends CSSList implements AtRule
         return $sResult;
     }
 
-    /**
-     * @return bool
-     */
-    public function isRootList()
+    public function isRootList(): bool
     {
         return false;
     }
@@ -90,13 +72,14 @@ class KeyFrame extends CSSList implements AtRule
     /**
      * @return string|null
      */
-    public function atRuleName()
+    public function atRuleName(): ?string
     {
         return $this->vendorKeyFrame;
     }
 
     /**
-     * @return string|null
+     * @return mixed of CSSString|array<int, URL|string>|string|null previously as string|null
+         *               in this class return as string|null
      */
     public function atRuleArgs()
     {

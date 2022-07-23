@@ -10,15 +10,9 @@ use Sabberworm\CSS\Property\AtRule;
  */
 class AtRuleSet extends RuleSet implements AtRule
 {
-    /**
-     * @var string
-     */
-    private $sType;
+    private string $sType;
 
-    /**
-     * @var string
-     */
-    private $sArgs;
+    private string $sArgs;
 
     /**
      * @param string $sType
@@ -32,16 +26,14 @@ class AtRuleSet extends RuleSet implements AtRule
         $this->sArgs = $sArgs;
     }
 
-    /**
-     * @return string
-     */
-    public function atRuleName()
+    public function atRuleName(): string
     {
         return $this->sType;
     }
 
     /**
-     * @return string
+     * @return mixed of CSSString|array<int, URL|string>|string|null previously as string|null
+     *               in this class return as string
      */
     public function atRuleArgs()
     {
@@ -56,10 +48,7 @@ class AtRuleSet extends RuleSet implements AtRule
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         $sResult = $oOutputFormat->comments($this);
         $sArgs = $this->sArgs;

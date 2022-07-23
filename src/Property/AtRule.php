@@ -28,7 +28,8 @@ interface AtRule extends Renderable, Commentable
     public function atRuleName();
 
     /**
-     * @return string|null
+     * @return mixed of CSSString|array<int, URL|string>|string|null previously as string|null
+         *               in this class return as string|null
      */
     public function atRuleArgs();
 }

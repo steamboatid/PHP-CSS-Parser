@@ -24,7 +24,7 @@ class Color extends CSSFunction
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    public static function parse(ParserState $oParserState)
+    public static function parse(ParserState $oParserState): CSSFunction
     {
         $aColor = [];
         if ($oParserState->comes('#')) {
@@ -91,16 +91,7 @@ class Color extends CSSFunction
         return new Color($aColor, $oParserState->currentLine());
     }
 
-    /**
-     * @param float $fVal
-     * @param float $fFromMin
-     * @param float $fFromMax
-     * @param float $fToMin
-     * @param float $fToMax
-     *
-     * @return float
-     */
-    private static function mapRange($fVal, $fFromMin, $fFromMax, $fToMin, $fToMax)
+    private static function mapRange(float $fVal, float $fFromMin, float $fFromMax, float $fToMin, float $fToMax): float
     {
         $fFromRange = $fFromMax - $fFromMin;
         $fToRange = $fToMax - $fToMin;
@@ -113,26 +104,21 @@ class Color extends CSSFunction
     /**
      * @return array<int, RuleValueList|CSSFunction|CSSString|LineName|Size|URL|string>
      */
-    public function getColor()
+    public function getColor(): array
     {
         return $this->aComponents;
     }
 
     /**
      * @param array<int, RuleValueList|CSSFunction|CSSString|LineName|Size|URL|string> $aColor
-     *
-     * @return void
      */
-    public function setColor(array $aColor)
+    public function setColor(array $aColor): void
     {
         $this->setName(implode('', array_keys($aColor)));
         $this->aComponents = $aColor;
     }
 
-    /**
-     * @return string
-     */
-    public function getColorDescription()
+    public function getColorDescription(): string
     {
         return $this->getName();
     }
@@ -145,10 +131,7 @@ class Color extends CSSFunction
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         // Shorthand RGB color values
         if ($oOutputFormat->getRGBHashNotation() && implode('', array_keys($this->aComponents)) === 'rgb') {

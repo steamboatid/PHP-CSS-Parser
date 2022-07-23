@@ -39,7 +39,7 @@ abstract class CSSList implements Renderable, Commentable
     /**
      * @var array<int, RuleSet|CSSList|Import|Charset>
      */
-    protected $aContents;
+    protected array $aContents;
 
     /**
      * @var int
@@ -242,12 +242,10 @@ abstract class CSSList implements Renderable, Commentable
      * Tests an identifier for a given value. Since identifiers are all keywords, they can be vendor-prefixed.
      * We need to check for these versions too.
      *
-     * @param string $sIdentifier
-     * @param string $sMatch
      *
      * @return bool
      */
-    private static function identifierIs($sIdentifier, $sMatch)
+    private static function identifierIs(string $sIdentifier, string $sMatch)
     {
         return (strcasecmp($sIdentifier, $sMatch) === 0)
             ?: preg_match("/^(-\\w+-)?$sMatch$/i", $sIdentifier) === 1;
@@ -288,13 +286,11 @@ abstract class CSSList implements Renderable, Commentable
     /**
      * Splices the list of contents.
      *
-     * @param int $iOffset
      * @param int $iLength
      * @param array<int, RuleSet|CSSList|Import|Charset> $mReplacement
-     *
      * @return void
      */
-    public function splice($iOffset, $iLength = null, $mReplacement = null)
+    public function splice(int $iOffset, $iLength = null, $mReplacement = null)
     {
         array_splice($this->aContents, $iOffset, $iLength, $mReplacement);
     }
@@ -308,7 +304,7 @@ abstract class CSSList implements Renderable, Commentable
      *
      * @return bool whether the item was removed
      */
-    public function remove($oItemToRemove)
+    public function remove($oItemToRemove): bool
     {
         $iKey = array_search($oItemToRemove, $this->aContents, true);
         if ($iKey !== false) {
@@ -327,7 +323,7 @@ abstract class CSSList implements Renderable, Commentable
      *
      * @return bool
      */
-    public function replace($oOldItem, $mNewItem)
+    public function replace($oOldItem, $mNewItem): bool
     {
         $iKey = array_search($oOldItem, $this->aContents, true);
         if ($iKey !== false) {
@@ -360,7 +356,7 @@ abstract class CSSList implements Renderable, Commentable
      *
      * @return void
      */
-    public function removeDeclarationBlockBySelector($mSelector, $bRemoveAll = false)
+    public function removeDeclarationBlockBySelector($mSelector, bool $bRemoveAll = false)
     {
         if ($mSelector instanceof DeclarationBlock) {
             $mSelector = $mSelector->getSelectors();
@@ -413,7 +409,7 @@ abstract class CSSList implements Renderable, Commentable
             $oNextLevel = $oOutputFormat->nextLevel();
         }
         foreach ($this->aContents as $oContent) {
-            $sRendered = $oOutputFormat->safely(function () use ($oNextLevel, $oContent) {
+            $sRendered = $oOutputFormat->safely(function () use ($oNextLevel, $oContent): string {
                 return $oContent->render($oNextLevel);
             });
             if ($sRendered === null) {
@@ -446,7 +442,7 @@ abstract class CSSList implements Renderable, Commentable
     /**
      * @return array<int, RuleSet|Import|Charset|CSSList>
      */
-    public function getContents()
+    public function getContents(): array
     {
         return $this->aContents;
     }

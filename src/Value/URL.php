@@ -10,10 +10,7 @@ use Sabberworm\CSS\Parsing\UnexpectedTokenException;
 
 class URL extends PrimitiveValue
 {
-    /**
-     * @var CSSString
-     */
-    private $oURL;
+    private CSSString $oURL;
 
     /**
      * @param int $iLineNo
@@ -25,13 +22,12 @@ class URL extends PrimitiveValue
     }
 
     /**
-     * @return URL
      *
      * @throws SourceException
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    public static function parse(ParserState $oParserState)
+    public static function parse(ParserState $oParserState): \Sabberworm\CSS\Value\URL
     {
         $bUseUrl = $oParserState->comes('url', true);
         if ($bUseUrl) {
@@ -48,18 +44,12 @@ class URL extends PrimitiveValue
         return $oResult;
     }
 
-    /**
-     * @return void
-     */
-    public function setURL(CSSString $oURL)
+    public function setURL(CSSString $oURL): void
     {
         $this->oURL = $oURL;
     }
 
-    /**
-     * @return CSSString
-     */
-    public function getURL()
+    public function getURL(): CSSString
     {
         return $this->oURL;
     }
@@ -72,10 +62,7 @@ class URL extends PrimitiveValue
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         return "url({$this->oURL->render($oOutputFormat)})";
     }

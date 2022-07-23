@@ -10,20 +10,11 @@ use Sabberworm\CSS\OutputFormat;
  */
 class CSSNamespace implements AtRule
 {
-    /**
-     * @var string
-     */
     private $mUrl;
 
-    /**
-     * @var string
-     */
-    private $sPrefix;
+    private ?string $sPrefix = null;
 
-    /**
-     * @var int
-     */
-    private $iLineNo;
+    private int $iLineNo;
 
     /**
      * @var array<array-key, Comment>
@@ -43,10 +34,7 @@ class CSSNamespace implements AtRule
         $this->aComments = [];
     }
 
-    /**
-     * @return int
-     */
-    public function getLineNo()
+    public function getLineNo(): int
     {
         return $this->iLineNo;
     }
@@ -59,61 +47,43 @@ class CSSNamespace implements AtRule
         return $this->render(new OutputFormat());
     }
 
-    /**
-     * @return string
-     */
-    public function render(OutputFormat $oOutputFormat)
+    public function render(OutputFormat $oOutputFormat): string
     {
         return '@namespace ' . ($this->sPrefix === null ? '' : $this->sPrefix . ' ')
             . $this->mUrl->render($oOutputFormat) . ';';
     }
 
-    /**
-     * @return string
-     */
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->mUrl;
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getPrefix()
+    public function getPrefix(): string
     {
         return $this->sPrefix;
     }
 
-    /**
-     * @param string $mUrl
-     *
-     * @return void
-     */
-    public function setUrl($mUrl)
+    public function setUrl(string $mUrl): void
     {
         $this->mUrl = $mUrl;
     }
 
-    /**
-     * @param string $sPrefix
-     *
-     * @return void
-     */
-    public function setPrefix($sPrefix)
+    public function setPrefix(string $sPrefix): void
     {
         $this->sPrefix = $sPrefix;
     }
 
-    /**
-     * @return string
-     */
-    public function atRuleName()
+    public function atRuleName(): string
     {
         return 'namespace';
     }
 
     /**
-     * @return array<int, string>
+     * @return mixed of CSSString|array<int, URL|string>|string|null previously as string|null
+         *               in this class return as array<int, string>
      */
     public function atRuleArgs()
     {
@@ -126,10 +96,8 @@ class CSSNamespace implements AtRule
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function addComments(array $aComments)
+    public function addComments(array $aComments): void
     {
         $this->aComments = array_merge($this->aComments, $aComments);
     }
@@ -137,17 +105,15 @@ class CSSNamespace implements AtRule
     /**
      * @return array<array-key, Comment>
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->aComments;
     }
 
     /**
      * @param array<array-key, Comment> $aComments
-     *
-     * @return void
      */
-    public function setComments(array $aComments)
+    public function setComments(array $aComments): void
     {
         $this->aComments = $aComments;
     }
