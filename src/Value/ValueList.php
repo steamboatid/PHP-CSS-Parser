@@ -22,7 +22,7 @@ abstract class ValueList extends Value
      * @param string $sSeparator
      * @param int $iLineNo
      */
-    public function __construct($aComponents = [], $sSeparator = ',', $iLineNo = 0)
+    public function __construct($aComponents = [], string $sSeparator = ',', int $iLineNo = 0)
     {
         parent::__construct($iLineNo);
         if (!is_array($aComponents)) {

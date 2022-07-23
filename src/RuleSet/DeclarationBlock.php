@@ -33,7 +33,7 @@ class DeclarationBlock extends RuleSet
     /**
      * @param int $iLineNo
      */
-    public function __construct($iLineNo = 0)
+    public function __construct(int $iLineNo = 0)
     {
         parent::__construct($iLineNo);
         $this->aSelectors = [];

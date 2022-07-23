@@ -76,7 +76,7 @@ class Selector
      * @param string $sSelector
      * @param bool $bCalculateSpecificity
      */
-    public function __construct($sSelector, $bCalculateSpecificity = false)
+    public function __construct(string $sSelector, bool $bCalculateSpecificity = false)
     {
         $this->setSelector($sSelector);
         if ($bCalculateSpecificity) {

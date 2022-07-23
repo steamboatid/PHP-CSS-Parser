@@ -15,7 +15,7 @@ class URL extends PrimitiveValue
     /**
      * @param int $iLineNo
      */
-    public function __construct(CSSString $oURL, $iLineNo = 0)
+    public function __construct(CSSString $oURL, int $iLineNo = 0)
     {
         parent::__construct($iLineNo);
         $this->oURL = $oURL;

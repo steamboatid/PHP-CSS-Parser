@@ -15,7 +15,7 @@ class Comment implements Renderable
      * @param string $sComment
      * @param int $iLineNo
      */
-    public function __construct($sComment = '', $iLineNo = 0)
+    public function __construct(string $sComment = '', int $iLineNo = 0)
     {
         $this->sComment = $sComment;
         $this->iLineNo = $iLineNo;

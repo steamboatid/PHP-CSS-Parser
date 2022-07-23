@@ -49,7 +49,7 @@ abstract class CSSList implements Renderable, Commentable
     /**
      * @param int $iLineNo
      */
-    public function __construct($iLineNo = 0)
+    public function __construct(int $iLineNo = 0)
     {
         $this->aComments = [];
         $this->aContents = [];

@@ -11,7 +11,7 @@ class OutputException extends SourceException
      * @param string $sMessage
      * @param int $iLineNo
      */
-    public function __construct($sMessage, $iLineNo = 0)
+    public function __construct(string $sMessage, int $iLineNo = 0)
     {
         parent::__construct($sMessage, $iLineNo);
     }

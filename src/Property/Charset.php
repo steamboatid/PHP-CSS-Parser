@@ -29,7 +29,7 @@ class Charset implements AtRule
      * @param CSSString $oCharset
      * @param int $iLineNo
      */
-    public function __construct(CSSString $oCharset, $iLineNo = 0)
+    public function __construct(CSSString $oCharset, int $iLineNo = 0)
     {
         $this->oCharset = $oCharset;
         $this->iLineNo = $iLineNo;

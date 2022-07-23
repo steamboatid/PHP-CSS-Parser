@@ -16,21 +16,21 @@ class Import implements AtRule
     /**
      * @var string
      */
-    private $sMediaQuery;
+    private ?string $sMediaQuery = null;
 
     protected int $iLineNo;
 
     /**
      * @var array<array-key, Comment>
      */
-    protected $aComments;
+    protected array $aComments = array();
 
     /**
      * @param URL $oLocation
      * @param string $sMediaQuery
      * @param int $iLineNo
      */
-    public function __construct(URL $oLocation, $sMediaQuery, $iLineNo = 0)
+    public function __construct(URL $oLocation, ?string $sMediaQuery=null, int $iLineNo = 0)
     {
         $this->oLocation = $oLocation;
         $this->sMediaQuery = $sMediaQuery;

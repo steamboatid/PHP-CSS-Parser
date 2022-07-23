@@ -157,7 +157,7 @@ class OutputFormat
     /**
      * @var OutputFormat|null
      */
-    private ?self $oNextLevelFormat = null;
+    private ?OutputFormat $oNextLevelFormat = null;
 
     private int $iIndentationLevel = 0;
 

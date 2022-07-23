@@ -35,7 +35,7 @@ abstract class RuleSet implements Renderable, Commentable
     /**
      * @param int $iLineNo
      */
-    public function __construct($iLineNo = 0)
+    public function __construct(int $iLineNo = 0)
     {
         $this->aRules = [];
         $this->iLineNo = $iLineNo;

@@ -15,7 +15,7 @@ class SourceException extends Exception
      * @param string $sMessage
      * @param int $iLineNo
      */
-    public function __construct($sMessage, $iLineNo = 0)
+    public function __construct(string $sMessage, int $iLineNo = 0)
     {
         $this->iLineNo = $iLineNo;
         if (!empty($iLineNo)) {

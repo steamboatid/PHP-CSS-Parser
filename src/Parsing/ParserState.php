@@ -37,7 +37,7 @@ class ParserState
      * @param string $sText
      * @param int $iLineNo
      */
-    public function __construct($sText, Settings $oParserSettings, $iLineNo = 1)
+    public function __construct(string $sText, Settings $oParserSettings, int $iLineNo = 1)
     {
         $this->oParserSettings = $oParserSettings;
         $this->sText = $sText;

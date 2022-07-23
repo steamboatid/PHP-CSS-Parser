@@ -14,7 +14,7 @@ class CSSFunction extends ValueList
      * @param string $sSeparator
      * @param int $iLineNo
      */
-    public function __construct($sName, $aArguments, $sSeparator = ',', $iLineNo = 0)
+    public function __construct(string $sName, $aArguments, string $sSeparator = ',', int $iLineNo = 0)
     {
         if ($aArguments instanceof RuleValueList) {
             $sSeparator = $aArguments->getListSeparator();

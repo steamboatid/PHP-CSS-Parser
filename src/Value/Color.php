@@ -13,7 +13,7 @@ class Color extends CSSFunction
      * @param array<int, RuleValueList|CSSFunction|CSSString|LineName|Size|URL|string> $aColor
      * @param int $iLineNo
      */
-    public function __construct(array $aColor, $iLineNo = 0)
+    public function __construct(array $aColor, int $iLineNo = 0)
     {
         parent::__construct(implode('', array_keys($aColor)), $aColor, ',', $iLineNo);
     }

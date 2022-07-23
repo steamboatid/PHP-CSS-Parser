@@ -22,11 +22,11 @@ class CSSNamespace implements AtRule
     protected $aComments;
 
     /**
-     * @param string $mUrl
+     * @param $mUrl
      * @param string|null $sPrefix
      * @param int $iLineNo
      */
-    public function __construct($mUrl, $sPrefix = null, $iLineNo = 0)
+    public function __construct($mUrl, ?string $sPrefix = null, int $iLineNo = 0)
     {
         $this->mUrl = $mUrl;
         $this->sPrefix = $sPrefix;
