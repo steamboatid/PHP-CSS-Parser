@@ -44,7 +44,7 @@ class Charset implements AtRule
     /**
      * @param mixed $oCharset previously as string|CSSString
      */
-    public function setCharset($sCharset): void
+    public function setCharset(mixed $sCharset): void
     {
         $sCharset = $sCharset instanceof CSSString ? $sCharset : new CSSString($sCharset);
         $this->oCharset = $sCharset;

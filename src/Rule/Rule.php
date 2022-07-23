@@ -232,7 +232,7 @@ class Rule implements Renderable, Commentable
      * @return void
      *
      */
-    public function addValue($mValue, string $sType = ' '): void
+    public function addValue(mixed $mValue, string $sType = ' '): void
     {
         if (!is_array($mValue)) {
             $mValue = [$mValue];

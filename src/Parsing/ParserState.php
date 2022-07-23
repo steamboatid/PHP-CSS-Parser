@@ -216,7 +216,7 @@ class ParserState
      * @throws UnexpectedTokenException
      * @throws UnexpectedEOFException
      */
-    public function consume($mValue): string
+    public function consume(mixed $mValue): string
     {
         if (!$mValue) {
             $mValue = 1;

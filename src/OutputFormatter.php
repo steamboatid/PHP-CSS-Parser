@@ -100,7 +100,7 @@ class OutputFormatter
      *
      * @return string|null
      */
-    public function safely($cCode)
+    public function safely(mixed $cCode): ?string
     {
         if ($this->oFormat->get('IgnoreExceptions')) {
             // If output exceptions are ignored, run the code with exception guards

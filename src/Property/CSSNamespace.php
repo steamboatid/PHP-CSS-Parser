@@ -10,7 +10,7 @@ use Sabberworm\CSS\OutputFormat;
  */
 class CSSNamespace implements AtRule
 {
-    private $mUrl;
+    private mixed $mUrl;
 
     private ?string $sPrefix = null;
 
@@ -22,11 +22,11 @@ class CSSNamespace implements AtRule
     protected $aComments;
 
     /**
-     * @param $mUrl
+     * @param mixed $mUrl
      * @param string|null $sPrefix
      * @param int $iLineNo
      */
-    public function __construct($mUrl, ?string $sPrefix = null, int $iLineNo = 0)
+    public function __construct(mixed $mUrl, ?string $sPrefix = null, int $iLineNo = 0)
     {
         $this->mUrl = $mUrl;
         $this->sPrefix = $sPrefix;

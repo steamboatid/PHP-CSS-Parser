@@ -274,7 +274,7 @@ background-color: #fff;
      */
     public function ignoreExceptionsOff()
     {
-				$this->expectException(\Sabberworm\CSS\Parsing\OutputException::class);
+        $this->expectException(\Sabberworm\CSS\Parsing\OutputException::class);
         $aBlocks = $this->oDocument->getAllDeclarationBlocks();
         $oFirstBlock = $aBlocks[0];
         $oFirstBlock->removeSelector('.main');
