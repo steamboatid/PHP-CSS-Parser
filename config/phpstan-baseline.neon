@@ -1,12 +1,207 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Call to an undefined method Sabberworm\\\\CSS\\\\OutputFormat\\:\\:setIndentation\\(\\)\\.$#"
+			message: "#^Call to function is_string\\(\\) with Sabberworm\\\\CSS\\\\Parsing\\\\ParserState will always evaluate to false\\.$#"
+			count: 1
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^If condition is always true\\.$#"
+			count: 1
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\CSSList\\\\CSSList\\:\\:replace\\(\\) has parameter \\$mNewItem with no type specified\\.$#"
+			count: 1
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\CSSList\\\\CSSList\\:\\:setContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Parameter \\#1 \\$aEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects array\\<string\\>\\|string, array\\<int, string\\|null\\> given\\.$#"
+			count: 4
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 3
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Parameter \\#2 \\$bIncludeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, false given\\.$#"
 			count: 2
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Parameter \\#2 \\$bIncludeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, true given\\.$#"
+			count: 3
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Parameter \\#3 \\$consumeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, true given\\.$#"
+			count: 5
+			path: ../src/CSSList/CSSList.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\CSSList\\\\KeyFrame\\:\\:setAnimationName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../src/CSSList/KeyFrame.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\CSSList\\\\KeyFrame\\:\\:setVendorKeyFrame\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../src/CSSList/KeyFrame.php
+
+		-
+			message: "#^Property Sabberworm\\\\CSS\\\\OutputFormat\\:\\:\\$bRGBHashNotation \\(string\\) does not accept default value of type true\\.$#"
+			count: 1
 			path: ../src/OutputFormat.php
 
 		-
+			message: "#^Property Sabberworm\\\\CSS\\\\OutputFormat\\:\\:\\$sSpaceAfterRuleName has no type specified\\.$#"
+			count: 1
+			path: ../src/OutputFormat.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string\\|null will always evaluate to false\\.$#"
+			count: 1
+			path: ../src/OutputFormatter.php
+
+		-
+			message: "#^Offset mixed on \\*NEVER\\* in isset\\(\\) always exists and is always null\\.$#"
+			count: 1
+			path: ../src/OutputFormatter.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$aComments$#"
+			count: 1
+			path: ../src/OutputFormatter.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: ../src/OutputFormatter.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$bIncludeEnd \\(false\\) of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: ../src/Parsing/ParserState.php
+
+		-
+			message: "#^Default value of the parameter \\#3 \\$consumeEnd \\(false\\) of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: ../src/Parsing/ParserState.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: ../src/Parsing/ParserState.php
+
+		-
+			message: "#^Parameter \\#1 \\$sExpected of class Sabberworm\\\\CSS\\\\Parsing\\\\UnexpectedEOFException constructor expects string, int given\\.$#"
+			count: 1
+			path: ../src/Parsing/ParserState.php
+
+		-
+			message: "#^Parameter \\#1 \\$sExpected of class Sabberworm\\\\CSS\\\\Parsing\\\\UnexpectedTokenException constructor expects string, null given\\.$#"
+			count: 1
+			path: ../src/Parsing/ParserState.php
+
+		-
+			message: "#^Parameter \\#3 \\$sMatchType of class Sabberworm\\\\CSS\\\\Parsing\\\\UnexpectedTokenException constructor expects string, int given\\.$#"
+			count: 1
+			path: ../src/Parsing/ParserState.php
+
+		-
+			message: "#^Cannot call method render\\(\\) on string\\.$#"
+			count: 1
+			path: ../src/Property/CSSNamespace.php
+
+		-
+			message: "#^Return type \\(array\\<int, string\\>\\) of method Sabberworm\\\\CSS\\\\Property\\\\CSSNamespace\\:\\:atRuleArgs\\(\\) should be compatible with return type \\(string\\|null\\) of method Sabberworm\\\\CSS\\\\Property\\\\AtRule\\:\\:atRuleArgs\\(\\)$#"
+			count: 1
+			path: ../src/Property/CSSNamespace.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Property\\\\Charset\\:\\:setCharset\\(\\) has parameter \\$sCharset with no type specified\\.$#"
+			count: 1
+			path: ../src/Property/Charset.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$oCharset$#"
+			count: 1
+			path: ../src/Property/Charset.php
+
+		-
+			message: "#^Return type \\(array\\<int, Sabberworm\\\\CSS\\\\Value\\\\URL\\|string\\>\\) of method Sabberworm\\\\CSS\\\\Property\\\\Import\\:\\:atRuleArgs\\(\\) should be compatible with return type \\(string\\|null\\) of method Sabberworm\\\\CSS\\\\Property\\\\AtRule\\:\\:atRuleArgs\\(\\)$#"
+			count: 1
+			path: ../src/Property/Import.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Rule\\\\Rule\\:\\:getValues\\(\\) should return array\\<int, array\\<int, Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\>\\> but returns array\\<int, array\\<int, string\\|null\\>\\>\\.$#"
+			count: 1
+			path: ../src/Rule/Rule.php
+
+		-
+			message: "#^Parameter \\#1 \\$iModifier of method Sabberworm\\\\CSS\\\\Rule\\\\Rule\\:\\:addIeHack\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: ../src/Rule/Rule.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 5
+			path: ../src/Rule/Rule.php
+
+		-
 			message: "#^Class Sabberworm\\\\CSS\\\\Value\\\\Size constructor invoked with 5 parameters, 1\\-4 required\\.$#"
+			count: 2
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\RuleSet\\\\DeclarationBlock\\:\\:setSelectors\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Offset 'font\\-size' on array\\<string, Sabberworm\\\\CSS\\\\Rule\\\\Rule\\> in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Offset 'font\\-style'\\|'font\\-variant'\\|'font\\-weight' on array\\{font\\-style\\: Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string, font\\-variant\\: Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string, font\\-weight\\: Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string, font\\-size\\: Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string, line\\-height\\: Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string, font\\-family\\?\\: Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Rule\\\\Rule\\:\\:addValue\\(\\) expects array\\<int, Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\>\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList, string given\\.$#"
+			count: 2
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Parameter \\#2 \\$bIncludeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, false given\\.$#"
+			count: 2
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Parameter \\#3 \\$bIsColorComponent of class Sabberworm\\\\CSS\\\\Value\\\\Size constructor expects bool, null given\\.$#"
+			count: 2
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Parameter \\#3 \\$consumeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Parameter \\#3 \\$consumeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, true given\\.$#"
+			count: 1
+			path: ../src/RuleSet/DeclarationBlock.php
+
+		-
+			message: "#^Parameter \\#4 \\$iLineNo of class Sabberworm\\\\CSS\\\\Value\\\\Size constructor expects int, false given\\.$#"
 			count: 2
 			path: ../src/RuleSet/DeclarationBlock.php
 
@@ -16,7 +211,667 @@ parameters:
 			path: ../src/RuleSet/DeclarationBlock.php
 
 		-
+			message: "#^Argument of an invalid type Sabberworm\\\\CSS\\\\Rule\\\\Rule supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: ../src/RuleSet/RuleSet.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: ../src/RuleSet/RuleSet.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 3
+			path: ../src/RuleSet/RuleSet.php
+
+		-
+			message: "#^Parameter \\#2 \\$bIncludeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, true given\\.$#"
+			count: 1
+			path: ../src/RuleSet/RuleSet.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, Sabberworm\\\\CSS\\\\Rule\\\\Rule given\\.$#"
+			count: 1
+			path: ../src/RuleSet/RuleSet.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 2
+			path: ../src/Value/CSSString.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: ../src/Value/CalcFunction.php
+
+		-
+			message: "#^Parameter \\#2 \\$bIncludeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: ../src/Value/CalcFunction.php
+
+		-
+			message: "#^Parameter \\#3 \\$consumeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, true given\\.$#"
+			count: 1
+			path: ../src/Value/CalcFunction.php
+
+		-
 			message: "#^Variable \\$oVal might not be defined\\.$#"
 			count: 1
 			path: ../src/Value/CalcFunction.php
+
+		-
+			message: "#^Offset 'b' does not exist on array\\<int, Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string\\>\\.$#"
+			count: 1
+			path: ../src/Value/Color.php
+
+		-
+			message: "#^Offset 'g' does not exist on array\\<int, Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string\\>\\.$#"
+			count: 1
+			path: ../src/Value/Color.php
+
+		-
+			message: "#^Offset 'r' does not exist on array\\<int, Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string\\>\\.$#"
+			count: 1
+			path: ../src/Value/Color.php
+
+		-
+			message: "#^Parameter \\#1 \\$aColor of class Sabberworm\\\\CSS\\\\Value\\\\Color constructor expects array\\<int, Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\CSSString\\|Sabberworm\\\\CSS\\\\Value\\\\LineName\\|Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|Sabberworm\\\\CSS\\\\Value\\\\URL\\|string\\>, array\\<string, Sabberworm\\\\CSS\\\\Value\\\\CSSFunction\\|Sabberworm\\\\CSS\\\\Value\\\\Size\\|string\\> given\\.$#"
+			count: 1
+			path: ../src/Value/Color.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 4
+			path: ../src/Value/Color.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 2
+			path: ../src/Value/LineName.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Value\\\\Size\\:\\:isSize\\(\\) should return false but returns bool\\.$#"
+			count: 1
+			path: ../src/Value/Size.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Value\\\\Size\\:\\:setSize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../src/Value/Size.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 2
+			path: ../src/Value/Size.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 3
+			path: ../src/Value/URL.php
+
+		-
+			message: "#^Parameter \\#1 \\$mValue of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consume\\(\\) expects int, string given\\.$#"
+			count: 4
+			path: ../src/Value/Value.php
+
+		-
+			message: "#^Parameter \\#2 \\$bIncludeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: ../src/Value/Value.php
+
+		-
+			message: "#^Parameter \\#3 \\$consumeEnd of method Sabberworm\\\\CSS\\\\Parsing\\\\ParserState\\:\\:consumeUntil\\(\\) expects string, true given\\.$#"
+			count: 1
+			path: ../src/Value/Value.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\CSSList\\\\AtRuleBlockListTest\\:\\:parsesArgumentsOfMediaQueries\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/CSSList/AtRuleBlockListTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\CSSList\\\\AtRuleBlockListTest\\:\\:parsesRuleNameOfMediaQueries\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/CSSList/AtRuleBlockListTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\CSSList\\\\DocumentTest\\:\\:getContentsInitiallyReturnsEmptyArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/CSSList/DocumentTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\CSSList\\\\DocumentTest\\:\\:setContentsReplacesContentsSetInPreviousCall\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/CSSList/DocumentTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\CSSList\\\\DocumentTest\\:\\:setContentsSetsContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/CSSList/DocumentTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\Comment\\\\CommentTest\\:\\:keepCommentsInOutput\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/Comment/CommentTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\Comment\\\\CommentTest\\:\\:stripCommentsFromOutput\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/Comment/CommentTest.php
+
+		-
+			message: "#^Cannot call method setIndentation\\(\\) on Sabberworm\\\\CSS\\\\OutputFormat\\|false\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:compact\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:ignoreExceptionsOff\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:ignoreExceptionsOn\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:indentation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:plain\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:pretty\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:rGBHashNotation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:semicolonAfterLastRule\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceAfterListArgumentSeparator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceAfterListArgumentSeparatorComplex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceAfterRuleName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceAfterSelectorSeparator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceBeforeBraces\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceBetweenBlocks\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceBlocks\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceBoth\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:spaceRules\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\OutputFormatTest\\:\\:stringQuotingType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/OutputFormatTest.php
+
+		-
+			message: "#^Cannot call method getColor\\(\\) on Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|string\\.$#"
+			count: 7
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Cannot call method getColorDescription\\(\\) on Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|string\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Instanceof between Sabberworm\\\\CSS\\\\Value\\\\RuleValueList\\|string\\|null and Sabberworm\\\\CSS\\\\Value\\\\Color will always evaluate to false\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:calcFailure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:calcInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:calcNestedInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:charsetFailure1\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:charsetFailure2\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:charsetLenient1\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:charsetLenient2\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:colorParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:commentExtracting\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:comments\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:createShorthands\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:emptyFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:emptyFileMbOff\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:emptyGridLineNameLenientInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:expandShorthands\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:files\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:flatCommentExtracting\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:functionSyntax\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:gridLineNameInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:hexAlphaInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:identifierEscapesInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:ieHacksParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:ieHacksStrictParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:innerColors\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:invalidGridLineNameInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:invalidSelectorsInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:keyframeSelectors\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:largeSizeValuesInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:lineNameFailure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:lineNumbersParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:listValueRemoval\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:lonelyImport\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:manipulation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:microsoftFilterParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:microsoftFilterStrictParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:missingPropertyValueLenient\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:missingPropertyValueStrict\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:namespaces\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:parseForOneRuleSetReturnsDocumentWithOneRuleSet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:prefixedGradient\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:ruleGetters\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:selectorEscapesInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:selectorIgnoresInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:selectorRemoval\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:slashedValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:specificity\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:topLevelCommentExtracting\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:trailingWhitespace\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:unexpectedTokenExceptionLineNo\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:unicodeParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:unicodeRangeParsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:unmatchedBracesInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:unopenedClosingBracketFailure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:urlInFile\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\ParserTest\\:\\:urlInFileMbOff\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$sSpecificitySearch of method Sabberworm\\\\CSS\\\\CSSList\\\\Document\\:\\:getSelectorsBySpecificity\\(\\) expects string\\|null, int given\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Right side of && is always false\\.$#"
+			count: 2
+			path: ../tests/ParserTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:createBackgroundShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:createBorderShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:createDimensionsShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:createFontShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:expandBackgroundShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:expandBorderShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:expandDimensionsShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:expandFontShorthand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:orderOfElementsMatchingOriginalOrderAfterExpandingShorthands\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:overrideRules\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\DeclarationBlockTest\\:\\:ruleInsertion\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/DeclarationBlockTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:caseInsensitivity\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:endToken\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:endToken2\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:endToken2Positive\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:endTokenPositive\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:faultToleranceOff\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:faultToleranceOn\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\RuleSet\\\\LenientParsingTest\\:\\:localeTrap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/RuleSet/LenientParsingTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\Value\\\\CalcRuleValueListTest\\:\\:getLineNoReturnsLineNumberProvidedToConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/Value/CalcRuleValueListTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\Value\\\\CalcRuleValueListTest\\:\\:getLineNumberByDefaultReturnsZero\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/Value/CalcRuleValueListTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\Value\\\\CalcRuleValueListTest\\:\\:isRuleValueList\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/Value/CalcRuleValueListTest.php
+
+		-
+			message: "#^Method Sabberworm\\\\CSS\\\\Tests\\\\Value\\\\CalcRuleValueListTest\\:\\:separatorAlwaysIsComma\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: ../tests/Value/CalcRuleValueListTest.php
 

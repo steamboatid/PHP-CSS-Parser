@@ -16,7 +16,7 @@ class DocumentTest extends TestCase
      */
     private $subject;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subject = new Document();
     }

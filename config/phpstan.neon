@@ -2,17 +2,35 @@ includes:
     - phpstan-baseline.neon
 
 parameters:
-  parallel:
-    # Don't be overly greedy on machines with more CPU's to be a good neighbor especially on CI
-    maximumNumberOfProcesses: 5
+    checkUninitializedProperties: false
+    checkMissingIterableValueType: false
+    checkInternalClassCaseSensitivity: false
+    checkFunctionNameCase: true
+    checkExplicitMixedMissingReturn: true
+    checkAlwaysTrueStrictComparison: false
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    checkGenericClassInNonGenericObjectType: false
+    level: 6
+    phpVersion: 80100 # PHP 8.1
+    tmpDir: /dev/shm/phpstan
 
-  level: 1
+    parallel:
+        # Don't be overly greedy on machines with more CPU's to be a good neighbor especially on CI
+        maximumNumberOfProcesses: 5
 
-  scanDirectories:
-    - %currentWorkingDirectory%/bin/
-    - %currentWorkingDirectory%/src/
-    - %currentWorkingDirectory%/tests/
-  paths:
-    - %currentWorkingDirectory%/bin/
-    - %currentWorkingDirectory%/src/
-    - %currentWorkingDirectory%/tests/
+    scanDirectories:
+        - %currentWorkingDirectory%/bin/
+        - %currentWorkingDirectory%/src/
+        - %currentWorkingDirectory%/tests/
+    paths:
+        - %currentWorkingDirectory%/bin/
+        - %currentWorkingDirectory%/src/
+        - %currentWorkingDirectory%/tests/
+
+    ignoreErrors:
+        - '#Call to an undefined method Sabberworm.*#'
+        - '#Property.*is never,*#'
+        - '#Method.*unused.,*#'
+        - '#Cannot call method (setSpaceAfterRuleName|setSpaceBetweenBlocks).*#'
+#        - '#.*#'
