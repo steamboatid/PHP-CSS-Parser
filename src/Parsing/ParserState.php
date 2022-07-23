@@ -2,7 +2,6 @@
 
 namespace Sabberworm\CSS\Parsing;
 
-use mixed;
 use Sabberworm\CSS\Comment\Comment;
 use Sabberworm\CSS\Settings;
 

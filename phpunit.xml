@@ -7,7 +7,6 @@
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
-    mapTestClassNameToCoveredClassName="false"
     verbose="true"
     >
     <testsuites>
@@ -21,8 +20,5 @@
         <whitelist>
             <directory suffix=".php">src</directory>
         </whitelist>
-        <blacklist>
-            <directory suffix=".php">vendor</directory>
-        </blacklist>
     </filter>
 </phpunit>
